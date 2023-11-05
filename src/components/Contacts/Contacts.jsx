@@ -19,6 +19,3 @@ export const ContactList = ({filteredContacts, handleDeleteContact}) => {
         </PhonebookContactsList>
         );
 };      
-
-            // console.log(filteredContacts);
-            // console.log(handleDeleteContact);

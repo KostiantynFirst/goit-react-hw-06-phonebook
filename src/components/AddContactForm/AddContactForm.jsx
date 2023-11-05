@@ -1,6 +1,6 @@
 import { PhonebookForm, PhonebookFormContainer, PhonebookFormLabel, PhonebookFormInput, PhonebookBtn  } from "./AddContactForm.styled";
 
-export const AddContactForm = ({handleSubmit, name, number, onInputName}) => {
+export const AddContactForm = ({handleSubmit, name, number, onInputName, onInputNumber}) => {
    
     return (
         <PhonebookForm onSubmit={handleSubmit}>
@@ -26,7 +26,7 @@ export const AddContactForm = ({handleSubmit, name, number, onInputName}) => {
                                   title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
                                   required
                                   placeholder="Tel number"
-                                  onChange={(e) => onInputName(e, 'number')} />
+                                  onChange={(e) => onInputNumber(e, 'number')} />
         </PhonebookFormContainer>
         
         
