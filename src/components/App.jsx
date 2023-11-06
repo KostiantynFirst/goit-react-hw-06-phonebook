@@ -8,10 +8,15 @@ import useLocalStorage from "hooks/useLocalStorage";
 import { PhonebookContainer, PhonebookHeadings, PhonebookContacts, PhonebookContactsHeading } from "../components/Phonebook/Phonebook.styled";
 import { Filter } from "./Filter/Filter";
 
+import { setFilter } from "redux/contactSlices";
+import { useSelector, useDispatch } from "react-redux";
+
 export const App = () => {
 
-  const [contacts, setContacts] = useLocalStorage('contacts', []);
-  const [filter, setFilter] = useState('');
+const contacts = useSelector(state => state.contacts);
+const filter = useSelector(state => state.filter);
+const dispatch = useDispatch();
+
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
 
@@ -54,7 +59,7 @@ export const App = () => {
     }   
 
   const changeFilter = e => {
-    setFilter(e.currentTarget.value);
+    dispatch(setFilter(e.currentTarget.value));
   };
 
   const filteredContacts = contacts.filter(contact =>
