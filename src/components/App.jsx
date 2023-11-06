@@ -1,14 +1,14 @@
 import { useState } from "react";
-import { nanoid } from "nanoid";
+// import { nanoid } from "nanoid";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { AddContactForm } from "./AddContactForm/AddContactForm";
 import { ContactList } from "./Contacts/Contacts";
-import useLocalStorage from "hooks/useLocalStorage";
+// import useLocalStorage from "hooks/useLocalStorage";
 import { PhonebookContainer, PhonebookHeadings, PhonebookContacts, PhonebookContactsHeading } from "../components/Phonebook/Phonebook.styled";
 import { Filter } from "./Filter/Filter";
 
-import { setFilter } from "redux/contactSlices";
+import { deleteContact, setFilter } from "redux/contactSlices";
 import { useSelector, useDispatch } from "react-redux";
 
 export const App = () => {
@@ -47,10 +47,11 @@ const dispatch = useDispatch();
         return;
       }
   
-      const newContact = { id: nanoid(), name, number };
-        setContacts((prevContacts) => [...prevContacts, newContact]);
-        resetForm();
+      // const newContact = { id: nanoid(), name, number };
+      //   dispatch(addContact({id: nanoid(), name, number}));
+      //   resetForm();
       };
+
 
   
    const resetForm = () => {
@@ -67,9 +68,7 @@ const dispatch = useDispatch();
   );
 
   const handleDeleteContact = contactId => {
-    setContacts((prevContacts) => 
-      prevContacts.filter(contact => contact.id !== contactId)
-    );
+    dispatch(deleteContact(contactId));
   };
 
   return (
