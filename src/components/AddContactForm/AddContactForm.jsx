@@ -1,7 +1,18 @@
 import { PhonebookForm, PhonebookFormContainer, PhonebookFormLabel, PhonebookFormInput, PhonebookBtn  } from "./AddContactForm.styled";
+import { useDispatch } from "react-redux";
+import { addContact } from "redux/contactSlices";
+import { nanoid } from "@reduxjs/toolkit";
 
-export const AddContactForm = ({handleSubmit, name, number, onInputName, onInputNumber}) => {
+export const AddContactForm = ({ name, number, onInputName, onInputNumber}) => {
    
+    const dispatch = useDispatch();
+
+    const handleSubmit = e => {
+        e.preventDefault();
+
+        dispatch(addContact({id: nanoid(), name, number}));
+    }
+
     return (
         <PhonebookForm onSubmit={handleSubmit}>
          
