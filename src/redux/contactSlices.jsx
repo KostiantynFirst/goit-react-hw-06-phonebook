@@ -4,6 +4,12 @@ export const contactSlice = createSlice({
     name: 'contacts',
     initialState: [],
     reducers: {
+        addContact: (state, action) => {
+
+        },
+        deleteContact: (state, action) => {
+
+        },
         
     }
 })
