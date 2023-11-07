@@ -16,7 +16,7 @@ export const contactSlice = createSlice({
         prepare(name, number) {
             return {
                 payload: {
-                    if: nanoid(),
+                    id: nanoid(),
                     name: name,
                     number: number,
                 },
