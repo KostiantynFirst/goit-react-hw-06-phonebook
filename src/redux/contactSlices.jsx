@@ -23,10 +23,10 @@ export const contactSlice = createSlice({
             };
         },
         },
-        deleteContact: (state, action) => {
+        deleteContact (state, action){
             return state.contacts.filter(contact => contact.id !== action.payload);
         },
-        setFilter: (state, action) => {
+        setFilter(state, action){
             state.filter = action.payload;
         }
         
