@@ -15,7 +15,7 @@ export const AddContactForm = () => {
 
     const handleSubmit = e => {
         e.preventDefault();
-        const form = e.target;
+        // const form = e.target;
  
         const isNameExist = contacts.some(
           contact => contact.name.toLowerCase() === name.toLowerCase(),
@@ -25,12 +25,17 @@ export const AddContactForm = () => {
           contact => contact.number === number,
         );
 
+        const resetForm = () => {
+            setName("");
+            setNumber();
+        }
+
     
         if (isNameExist) {
           toast.error('Contact with such name already exists!', {
             autoClose: 3000
           });
-          form.reset();
+          resetForm();
           return;
         }
     
@@ -38,12 +43,12 @@ export const AddContactForm = () => {
           toast.error('Contact with such number already exists!', {
             autoClose: 3000
           });
-          form.reset();
+          resetForm();
           return;
         }
 
         dispatch(addContact({id: nanoid(), name, number}));
-        form.reset();
+        resetForm();
     
     }
   
@@ -53,6 +58,7 @@ export const AddContactForm = () => {
         <PhonebookFormContainer>
             <PhonebookFormLabel htmlFor="name"> Name: </PhonebookFormLabel> 
             <PhonebookFormInput   type="text"
+                                  value={name}
                                   name="name"
                                   pattern="^[a-zA-Z\u0400-\u04FF\s'\x2D]+$"
                                   title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
