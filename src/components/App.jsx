@@ -8,7 +8,8 @@ import { ContactList } from "./Contacts/Contacts";
 import { PhonebookContainer, PhonebookHeadings, PhonebookContacts, PhonebookContactsHeading } from "../components/Phonebook/Phonebook.styled";
 import { Filter } from "./Filter/Filter";
 
-import { deleteContact, setFilter } from "redux/contactSlices";
+import { nanoid } from "@reduxjs/toolkit";
+import { addContact, deleteContact, setFilter } from "redux/contactSlices";
 import { useSelector, useDispatch } from "react-redux";
 
 export const App = () => {
@@ -22,6 +23,7 @@ const dispatch = useDispatch();
 
    const handleSubmit = e => {
       e.preventDefault();
+      dispatch(addContact({id: nanoid(), name, number}));
 
       const isNameExist = contacts.some(
         contact => contact.name.toLowerCase() === name.toLowerCase(),
