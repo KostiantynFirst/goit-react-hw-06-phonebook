@@ -1,18 +1,58 @@
 import { PhonebookForm, PhonebookFormContainer, PhonebookFormLabel, PhonebookFormInput, PhonebookBtn  } from "./AddContactForm.styled";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addContact } from "redux/contactSlices";
 import { nanoid } from "@reduxjs/toolkit";
+import { toast } from "react-toastify";
 
-export const AddContactForm = ({ name, number, onInputName, onInputNumber}) => {
+export const AddContactForm = () => {
    
     const dispatch = useDispatch();
+    const contacts = useSelector(state => state.contacts);
 
     const handleSubmit = e => {
         e.preventDefault();
+        const form = e.target;
+        const name = form.name.value;
+        const number = form.number.value;
+
+ 
+        const isNameExist = contacts.some(
+          contact => contact.name.toLowerCase() === name.toLowerCase(),
+        );
+        
+        const isNumberExist = contacts.some(
+          contact => contact.number === number,
+        );
+
+        switch (key) {
+            case value:
+                
+                break;
+        
+            default:
+                break;
+        }
+    
+        if (isNameExist) {
+          toast.error('Contact with such name already exists!', {
+            autoClose: 3000
+          });
+          form.reset();
+          return;
+        }
+    
+        if (isNumberExist) {
+          toast.error('Contact with such number already exists!', {
+            autoClose: 3000
+          });
+          form.reset();
+          return;
+        }
 
         dispatch(addContact({id: nanoid(), name, number}));
+    
     }
-
+  
     return (
         <PhonebookForm onSubmit={handleSubmit}>
          
