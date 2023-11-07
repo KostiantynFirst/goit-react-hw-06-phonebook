@@ -1,4 +1,4 @@
-import { useSelector, useDispatch } from "react-redux/es/hooks/useSelector";
+import { useSelector, useDispatch } from "react-redux";
 import { PhonebookContactsList, PhonebookContactsListItem, PhonebookContactsListItemName, DeleteBtn } from "./Contacts.styled";
 import { deleteContact } from "redux/contactSlices";
 import { toast } from "react-toastify";

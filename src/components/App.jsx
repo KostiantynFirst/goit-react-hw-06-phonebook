@@ -8,11 +8,6 @@ import { Filter } from "./Filter/Filter";
 
 export const App = () => {
 
-//  const changeFilter = e => {
-//     dispatch(setFilter(e.currentTarget.value));
-//   };
-
-
   return (
  
     <PhonebookContainer>
@@ -22,15 +17,9 @@ export const App = () => {
   <PhonebookContacts>
     <PhonebookContactsHeading>Contacts</PhonebookContactsHeading>
      
-  <Filter 
-    value={filter} 
-    onChange={changeFilter} 
-  />
+  <Filter />
 
-  <ContactList 
-    filteredContacts={filteredContacts}
-    handleDeleteContact={handleDeleteContact} 
-  />
+  <ContactList />
 
 <ToastContainer/>
 
