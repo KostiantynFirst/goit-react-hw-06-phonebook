@@ -9,14 +9,14 @@ export const ContactList = () => {
         const filterValue = useSelector(state => state.filter);
         const dispatch = useDispatch();
 
-        const handleDeleteContact = e => {
-                dispatch(deleteContact(e.target.id));
+        const handleDeleteContact = contactId => {
+                dispatch(deleteContact(contactId));
                 toast.info('The contact has been removed from your phonebook successfully!');
               };
 
         
         const filteredContacts = contacts.filter(contact =>
-                contact.name.toLowerCase().includes(filterValue.toLowerCase());
+                contact.name.toLowerCase().includes(filterValue.toLowerCase())
         );
 
         return (
