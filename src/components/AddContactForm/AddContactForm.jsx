@@ -15,7 +15,6 @@ export const AddContactForm = () => {
 
     const handleSubmit = e => {
         e.preventDefault();
-        // const form = e.target;
  
         const isNameExist = contacts.some(
           contact => contact.name.toLowerCase() === name.toLowerCase(),
@@ -27,7 +26,7 @@ export const AddContactForm = () => {
 
         const resetForm = () => {
             setName("");
-            setNumber();
+            setNumber("");
         }
 
     
