@@ -1,9 +1,9 @@
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { AddContactForm } from "./AddContactForm/AddContactForm";
-import { ContactList } from "./Contacts/Contacts";
-import { PhonebookContainer, PhonebookHeadings, PhonebookContacts, PhonebookContactsHeading } from "../components/Phonebook/Phonebook.styled";
-import { Filter } from "./Filter/Filter";
+import { AddContactForm } from "../AddContactForm/AddContactForm";
+import { ContactList } from "../Contacts/Contacts";
+import { PhonebookContainer, PhonebookHeadings, PhonebookContacts, PhonebookContactsHeading } from "./App.styled";
+import { Filter } from "../Filter/Filter";
 
 export const App = () => {
 
