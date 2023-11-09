@@ -13,7 +13,7 @@ import { contactSlice } from "./contactSlices";
 import storage from "redux-persist/lib/storage";
 
 const persistConfig = {
-    key: 'root',
+    key: 'contacts',
     storage,
     whitelist: ['contacts'],
 };
